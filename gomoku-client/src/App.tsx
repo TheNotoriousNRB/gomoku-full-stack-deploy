@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import './App.css';
+import './App1.css';
 import {Header, UserProvider} from './components';
 import Footer from './components/Footer';
 import {Home, Login, Game, GameLog, GamesHistory, SignUp} from './pages'

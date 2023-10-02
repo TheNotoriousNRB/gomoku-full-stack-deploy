@@ -16,7 +16,10 @@ export default function GamesHistory() {
   const [gamesById, setGameById] = useState<LogData[]>([])
   const [games] = useLocalStorage<LogData[]>('games', [])
  
-   
+  useEffect(() => {
+    getGameById()
+  }, [])
+
   if (!user) return <Navigate to="/login"/>
 
   const getGameById =async () => {
@@ -24,10 +27,7 @@ export default function GamesHistory() {
     setGameById(getGames)
   }
 
-  useEffect(() => {
-    getGameById()
-  }, [])
-
+  
   const game = gamesById.find(
     (i)=>i._id==gameId
   )
