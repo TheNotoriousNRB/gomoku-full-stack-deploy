@@ -5,6 +5,8 @@ import { validBoardSize } from '../constants/constants'
 import { Button } from '../components'
 import { UserContext } from '../context'
 import { post, setToken } from '../utils/http'
+import { API_HOST } from '../constants/constants'
+
 
 export default function Home(){
     const navigate = useNavigate()
@@ -18,7 +20,7 @@ export default function Home(){
                     if (user){
                         setToken(user.token)
                     }
-                    await post(`/api/games`, {
+                    await post(`${API_HOST}/api/games`, {
                         userID: user?._id,
                         boardSize: size,
                         moves: [[]],

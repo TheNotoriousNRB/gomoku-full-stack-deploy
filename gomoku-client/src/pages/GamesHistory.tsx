@@ -8,6 +8,8 @@ import style from './GamesHistory.module.css'
 import { GameBoard } from '../components'
 import {Button} from '../components'
 import { get } from '../utils/http'
+import { API_HOST } from '../constants/constants'
+
 
 export default function GamesHistory() {
   const {user} = useContext(UserContext)
@@ -23,7 +25,7 @@ export default function GamesHistory() {
   if (!user) return <Navigate to="/login"/>
 
   const getGameById =async () => {
-    const getGames = await get<LogData[]>('../api/games')
+    const getGames = await get<LogData[]>(`${API_HOST}../api/games`)
     setGameById(getGames)
   }
 

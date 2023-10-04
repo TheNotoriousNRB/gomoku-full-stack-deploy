@@ -3,6 +3,7 @@ import { UserContext } from '../context'
 import { useLocalStorage } from '../hooks'
 import { User, Credential } from '../types/User'
 import { post, setToken } from '../utils/http'
+import { API_HOST } from '../constants/constants'
 
 type UserProviderProps = {
     children: React.ReactNode
@@ -15,7 +16,7 @@ export default function UserProvider({children}: UserProviderProps) {
     }
     const login = async (username: string, password: string) => { 
         try {
-            const user = await post<Credential, User>('/api/auth/login', {
+            const user = await post<Credential, User>(`${API_HOST}/api/auth/login`, {
                 username,
                 password,
             })
@@ -32,7 +33,7 @@ export default function UserProvider({children}: UserProviderProps) {
 
     const register = async (username: string, password: string) => { 
         try {
-            const user = await post<Credential, User>('/api/auth/register', {
+            const user = await post<Credential, User>(`${API_HOST}/api/auth/register`, {
                 username,
                 password,
             })

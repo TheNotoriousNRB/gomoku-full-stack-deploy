@@ -7,7 +7,7 @@ import { LogData } from '../types'
 import style from './GameLog.module.css'
 import { Button } from '../components'
 import { get } from '../utils/http'
-import { GAMESTATE } from '../constants/constants'
+import { GAMESTATE, API_HOST } from '../constants/constants'
 
 
 export default function GameLog() {
@@ -20,7 +20,7 @@ export default function GameLog() {
   
 
   const getGameById = async()=>{
-    const getGame = await get<LogData[]>('../api/games')
+    const getGame = await get<LogData[]>(`${API_HOST}../api/games`)
     const filteredGames = getGame.filter(game=>game.result === GAMESTATE.PLAYER_ONE_WIN || game.result === GAMESTATE.PLAYER_TWO_WIN || game.result === GAMESTATE.DRAW)
     setGameById(filteredGames)
   }
