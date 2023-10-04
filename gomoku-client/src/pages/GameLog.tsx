@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react'
 import { UserContext } from '../context'
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { useLocalStorage } from '../hooks'
 import { LogData } from '../types'
 import style from './GameLog.module.css'
