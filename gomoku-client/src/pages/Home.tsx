@@ -9,7 +9,7 @@ import { post, setToken } from '../utils/http'
 export default function Home(){
     const navigate = useNavigate()
     const [size, setSize] = useState(6)
-    const {user, logout } = useContext(UserContext)
+    const {user } = useContext(UserContext)
 
     const getAction = () => {
         if (user) {

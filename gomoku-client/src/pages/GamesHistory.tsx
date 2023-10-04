@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { UserContext } from '../context'
 import { useContext } from 'react'
-import { Navigate, useNavigate, useParams, useSearchParams } from 'react-router-dom'
-import { useLocalStorage } from '../hooks'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
+//import { useLocalStorage } from '../hooks'
 import { LogData } from '../types'
 import style from './GamesHistory.module.css'
 import { GameBoard } from '../components'
@@ -14,7 +14,7 @@ export default function GamesHistory() {
   const {gameId = ''} = useParams()
   const navigate = useNavigate()
   const [gamesById, setGameById] = useState<LogData[]>([])
-  const [games] = useLocalStorage<LogData[]>('games', [])
+  //const [games] = useLocalStorage<LogData[]>('games', [])
  
   useEffect(() => {
     getGameById()
@@ -29,7 +29,7 @@ export default function GamesHistory() {
 
   
   const game = gamesById.find(
-    (i)=>i._id==gameId
+    (i)=>i._id===gameId
   )
   
   if(!game)

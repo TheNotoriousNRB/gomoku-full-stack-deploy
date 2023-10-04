@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react'
 import { UserContext } from '../context'
 import { useLocalStorage } from '../hooks'
 import { User, Credential } from '../types/User'

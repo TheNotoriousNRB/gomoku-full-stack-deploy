@@ -95,7 +95,7 @@ export function isGameTerminal(size: number, plays: Position[]){
         checkDiagonalTopRight(size, plays) === 5){
             return true
         }
-    if (plays.length == size * size) return true
+    if (plays.length === size * size) return true
 }
 
 export function stonePositions(position: Position, plays: Position[]){

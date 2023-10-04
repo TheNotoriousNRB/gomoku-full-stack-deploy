@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import {Button, Input, Message} from '../components'
 import { useNavigate } from 'react-router-dom'
 import style from './SignUp.module.css'
-import users from '../data/users.json'
+//import users from '../data/users.json'
 import { UserContext } from '../context'
 
 export default function SignUp() {

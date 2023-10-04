@@ -13,7 +13,7 @@ import { GAMESTATE } from '../constants/constants'
 export default function GameLog() {
   const {user} = useContext(UserContext)
   const navigate = useNavigate()
-  const {gameId = ''} = useParams()
+ // const {gameId = ''} = useParams()
   const [gamesById, setGameById] = useState<LogData[]>([])
   const [games] = useLocalStorage<LogData[]>('games', [])
 
@@ -21,7 +21,7 @@ export default function GameLog() {
 
   const getGameById = async()=>{
     const getGame = await get<LogData[]>('../api/games')
-    const filteredGames = getGame.filter(game=>game.result == GAMESTATE.PLAYER_ONE_WIN || game.result == GAMESTATE.PLAYER_TWO_WIN || game.result == GAMESTATE.DRAW)
+    const filteredGames = getGame.filter(game=>game.result === GAMESTATE.PLAYER_ONE_WIN || game.result === GAMESTATE.PLAYER_TWO_WIN || game.result === GAMESTATE.DRAW)
     setGameById(filteredGames)
   }
 
